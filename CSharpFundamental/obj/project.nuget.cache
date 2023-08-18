@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "vZMSS7DYWufq/9fdrQARbun5ySIsQld6o5SgwXTjZlOY/dbFJANAQAPzGGP74tY6WKy35TEZn49GRuz7fv35Mw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\krish\\source\\repos\\rahulshetty-krishnatraining\\CSharpFundamental\\CSharpFundamental.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\krish\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\krish\\.nuget\\packages\\selenium.webdriver\\4.10.0\\selenium.webdriver.4.10.0.nupkg.sha512"
+  ],
+  "logs": []
+}
