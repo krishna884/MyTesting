@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebDriverManager.DriverConfigs.Impl;
+using OpenQA.Selenium.Interactions;
 
 namespace SeleniumProj_RahulShetty
 {
@@ -55,6 +56,21 @@ namespace SeleniumProj_RahulShetty
                     option.Click();
                 }
             }
+            //Dynamic values cant be fetch through .Text attribute in selenium, can be perfomred with GetAttribute method
+            TestContext.Progress.WriteLine(driver.FindElement(By.Id("autocomplete")).GetAttribute("value"));
+        }
+        [Test]
+        public void test_Actions()
+        {
+            driver.Url = "https://rahulshettyacademy.com/";
+            Actions a = new Actions(driver);
+            a.MoveToElement(driver.FindElement(By.CssSelector("a.dropdown-toggle"))).Perform();
+
+            //In the below2 lines any one can be performed
+            driver.FindElement(By.XPath("//ul[@class='dropdown-menu']/li[1]/a")).Click();
+
+            //a.MoveToElement(driver.FindElement(By.XPath("//ul[@class='dropdown-menu']/li[1]/a"))).Click().Perform();
+
         }
     }
 }
