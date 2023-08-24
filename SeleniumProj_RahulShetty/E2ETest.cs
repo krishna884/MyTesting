@@ -24,7 +24,9 @@ namespace SeleniumProj_RahulShetty
         [Test]
         public void Endtoendtest()
         {
+            String indiacountry = "India";
             String[] excepectedproducts = { "iphone X", "Blackberry" };
+            String[] actualProducts = new string[2];
             driver.FindElement(By.XPath("//*[contains(@id,'username')]")).SendKeys("rahulshettyacademy");
             driver.FindElement(By.XPath("//div[@class='form-group'][2]//input")).SendKeys("learning");
             driver.FindElement(By.XPath("//div[@class='form-group'][5]//input[@id='signInBtn']")).Click();
@@ -45,6 +47,31 @@ namespace SeleniumProj_RahulShetty
             }
 
             driver.FindElement(By.PartialLinkText("Checkout")).Click();
+
+            IList<IWebElement> items= driver.FindElements(By.CssSelector("h4 a"));
+            for (int i=0; i<items.Count; i++)
+            {
+                actualProducts [i]=items[i].Text;
+            }
+            Assert.AreEqual(excepectedproducts, actualProducts);
+
+            driver.FindElement(By.CssSelector(".btn-success")).Click();
+
+            driver.FindElement(By.Id("country")).SendKeys("ind");
+            //Thread.Sleep(6000);
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.LinkText("India")));
+
+            /*IList<IWebElement> countries = driver.FindElements(By.XPath("//div[@class='suggestions']//li//a"));
+
+            foreach (IWebElement country in countries)
+            {
+                if(indiacountry.Contains(country.Text))
+                {
+                    country.Click();
+                }
+            }*/
+
+            driver.FindElement(By.XPath("//div[@class='suggestions']/ul[1]/li/a")).Click();
         }
     }
 }
